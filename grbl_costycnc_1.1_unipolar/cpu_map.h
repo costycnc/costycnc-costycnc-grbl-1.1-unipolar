@@ -34,17 +34,24 @@
   #define SERIAL_UDRE   USART_UDRE_vect
 
   // Define step pulse output pins. NOTE: All step bit pins must be on the same port.
-  #define STEP_DDR        DDRD
-  #define STEP_PORT       PORTD
-  #define X_STEP_BIT      2  // Uno Digital Pin 2
-  #define Y_STEP_BIT      3  // Uno Digital Pin 3
-  #define Z_STEP_BIT      4  // Uno Digital Pin 4
+
+  #define COSTY_STEP_DDR        DDRD
+  char STEP_DDR;//#define STEP_DDR        DDRD costycnc
+  char STEP_PORT;//#define STEP_PORT       PORTD costycnc
+  #define COSTY_STEP_MASK  ((1<<2)|(1<<3)|(1<<4)(1<<5))
+  
+  #define X_STEP_BIT      2  // Uno Digital Pin 2 costycnc
+  #define Y_STEP_BIT      3  // Uno Digital Pin 3 costycnc
+  #define Z_STEP_BIT      4  // Uno Digital Pin 4 costycnc
   #define STEP_MASK       ((1<<X_STEP_BIT)|(1<<Y_STEP_BIT)|(1<<Z_STEP_BIT)) // All step bits
 
+  
+
   // Define step direction output pins. NOTE: All direction pins must be on the same port.
-  #define DIRECTION_DDR     DDRD
-  #define DIRECTION_PORT    PORTD
-  #define X_DIRECTION_BIT   5  // Uno Digital Pin 5
+  char DIRECTION_DDR;//#define DIRECTION_DDR     DDRD costycnc
+  char DIRECTION_PORT;//#define DIRECTION_PORT    PORTD costycnc
+  
+  #define X_DIRECTION_BIT   5  // Uno Digital Pin 5 costycnc
   #define Y_DIRECTION_BIT   6  // Uno Digital Pin 6
   #define Z_DIRECTION_BIT   7  // Uno Digital Pin 7
   #define DIRECTION_MASK    ((1<<X_DIRECTION_BIT)|(1<<Y_DIRECTION_BIT)|(1<<Z_DIRECTION_BIT)) // All direction bits
@@ -76,13 +83,15 @@
 
   // Define user-control controls (cycle start, reset, feed hold) input pins.
   // NOTE: All CONTROLs pins must be on the same port and not on a port with other input pins (limits).
-  #define CONTROL_DDR       DDRC
-  #define CONTROL_PIN       PINC
-  #define CONTROL_PORT      PORTC
-  #define CONTROL_RESET_BIT         0  // Uno Analog Pin 0
-  #define CONTROL_FEED_HOLD_BIT     1  // Uno Analog Pin 1
-  #define CONTROL_CYCLE_START_BIT   2  // Uno Analog Pin 2
-  #define CONTROL_SAFETY_DOOR_BIT   1  // Uno Analog Pin 1 NOTE: Safety door is shared with feed hold. Enabled by config define.
+  #define COSTY_CONTROL_DDR        DDRC
+  
+  char CONTROL_DDR;//#define CONTROL_DDR       DDRC //costycnc
+  char CONTROL_PIN;//#define CONTROL_PIN       PINC //costycnc
+  char CONTROL_PORT;//#define CONTROL_PORT      PORTC //costycnc
+  #define CONTROL_RESET_BIT         5  // Uno Analog Pin 0
+  #define CONTROL_FEED_HOLD_BIT     5  // Uno Analog Pin 1
+  #define CONTROL_CYCLE_START_BIT   5  // Uno Analog Pin 2
+  #define CONTROL_SAFETY_DOOR_BIT   5  // Uno Analog Pin 1 NOTE: Safety door is shared with feed hold. Enabled by config define.
   #define CONTROL_INT       PCIE1  // Pin change interrupt enable pin
   #define CONTROL_INT_vect  PCINT1_vect
   #define CONTROL_PCMSK     PCMSK1 // Pin change interrupt register
@@ -90,9 +99,9 @@
   #define CONTROL_INVERT_MASK   CONTROL_MASK // May be re-defined to only invert certain control pins.
 
   // Define probe switch input pin.
-  #define PROBE_DDR       DDRC
-  #define PROBE_PIN       PINC
-  #define PROBE_PORT      PORTC
+ char PROBE_DDR;// #define PROBE_DDR       DDRC // cncnc
+  char PROBE_PIN;//#define PROBE_PIN       PINC // costycnc
+  char PROBE_PORT;//#define PROBE_PORT      PORTC // costycnc
   #define PROBE_BIT       5  // Uno Analog Pin 5
   #define PROBE_MASK      (1<<PROBE_BIT)
 
