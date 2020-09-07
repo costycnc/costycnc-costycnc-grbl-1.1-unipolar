@@ -1,10 +1,10 @@
 
 system.c line 43 to 68 comented (skip)     
-// Returns control pin state as a uint8 bitfield. Each bit indicates the input pin state, where
-// triggered is 1 and not triggered is 0. Invert mask is applied. Bitfield organization is
-// defined by the CONTROL_PIN_INDEX in the header file.
-uint8_t system_control_get_state()
-{
+          // Returns control pin state as a uint8 bitfield. Each bit indicates the input pin state, where
+          // triggered is 1 and not triggered is 0. Invert mask is applied. Bitfield organization is
+          // defined by the CONTROL_PIN_INDEX in the header file.
+          uint8_t system_control_get_state()
+          {
   uint8_t control_state = 0;
   /*
   uint8_t pin = (CONTROL_PIN & CONTROL_MASK) ^ CONTROL_MASK;
