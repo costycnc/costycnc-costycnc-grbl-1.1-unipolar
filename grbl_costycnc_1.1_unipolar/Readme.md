@@ -1,4 +1,4 @@
-system.c line 43 to 68 comented (skip)  
+system.c line 43 to 57 commented (skip)  
 
 	// Returns control pin state as a uint8 bitfield. Each bit indicates the input pin state, where
 	// triggered is 1 and not triggered is 0. Invert mask is applied. Bitfield organization is
