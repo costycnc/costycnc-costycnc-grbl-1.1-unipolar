@@ -40,6 +40,7 @@ void system_init()
 uint8_t system_control_get_state()
 {
   uint8_t control_state = 0;
+  /*
   uint8_t pin = (CONTROL_PIN & CONTROL_MASK) ^ CONTROL_MASK;
   #ifdef INVERT_CONTROL_PIN_MASK
     pin ^= INVERT_CONTROL_PIN_MASK;
@@ -53,6 +54,7 @@ uint8_t system_control_get_state()
     if (bit_istrue(pin,(1<<CONTROL_RESET_BIT))) { control_state |= CONTROL_PIN_INDEX_RESET; }
     if (bit_istrue(pin,(1<<CONTROL_CYCLE_START_BIT))) { control_state |= CONTROL_PIN_INDEX_CYCLE_START; }
   }
+  */
   return(control_state);
 }
 
