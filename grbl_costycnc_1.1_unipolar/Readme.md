@@ -6,7 +6,7 @@ system.c line 43 to 68 comented (skip)
     	 uint8_t system_control_get_state()
     	{
       uint8_t control_state = 0;
-        /*
+      /*
      uint8_t pin = (CONTROL_PIN & CONTROL_MASK) ^ CONTROL_MASK;
      #ifdef INVERT_CONTROL_PIN_MASK
     pin ^= INVERT_CONTROL_PIN_MASK;
@@ -30,9 +30,8 @@ system.c line 43 to 68 comented (skip)
 	control_state |= CONTROL_PIN_INDEX_CYCLE_START; 
 	printString("bla_start");
 	}
-  }
-  */
-  
+    }
+    */ 
        return(control_state);
     }
 
