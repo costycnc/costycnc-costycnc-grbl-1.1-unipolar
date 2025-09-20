@@ -49,16 +49,6 @@ It includes adjustments for axis direction and supports different baud rates for
 
 ---
 
-## Skills Highlighted
-
-- Embedded Systems  
-- Firmware Development  
-- Stepper Motor Control  
-- CNC Electronics  
-- C / C++ Programming  
-
----
-
 ## License
 
 This project is based on GRBL 1.1h and inherits the original license. Please check the [GRBL license](https://github.com/gnea/grbl/blob/master/LICENSE.md) for details.
