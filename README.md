@@ -1,7 +1,5 @@
 # CostyCNC GRBL 1.1 – Unipolar Motors Firmware
 
-![CostyCNC Logo](grbl_logo.png)
-
 **Customized GRBL 1.1h firmware adapted for unipolar stepper motors.**
 
 This project is a fork of the original GRBL 1.1h firmware, modified to work specifically with **unipolar stepper motors**.  
