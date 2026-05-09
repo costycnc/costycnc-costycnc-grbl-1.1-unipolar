@@ -1,6 +1,3 @@
-Ecco il **README completo in inglese** per le modifiche da apportare al GRBL 1.1 originale per il funzionamento con motori unipolari.
-
----
 
 # GRBL 1.1 Modification Guide for Unipolar Motors
 
