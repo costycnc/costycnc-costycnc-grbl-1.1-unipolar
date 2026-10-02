@@ -2,13 +2,16 @@
 
 Custom **GRBL 1.1h firmware for CNC machines using unipolar stepper motors**, with ready-to-flash HEX files for Arduino/ATmega328P-based controllers.
 
-This repository is useful when a CNC controller uses **unipolar stepper motors** and standard GRBL needs to be adapted for that hardware.
+The firmware is designed for the **unipolar stepper motor category**, not for one specific motor model. The **28BYJ-48 is one example of a unipolar stepper motor** that can be used in this type of application.
+
+This repository is useful when a CNC controller uses unipolar stepper motors and standard GRBL needs to be adapted for that hardware.
 
 ## What problem does this solve?
 
 This project addresses practical CNC firmware problems such as:
 
 - using **unipolar stepper motors with GRBL 1.1h**;
+- using motors such as the **28BYJ-48** in an appropriate unipolar CNC setup;
 - correcting an axis that moves in the wrong direction;
 - choosing between **250000 baud and 9600 baud** firmware;
 - flashing a ready-made GRBL HEX file instead of compiling the firmware;
@@ -18,7 +21,9 @@ If you are looking for:
 
 - "GRBL for unipolar stepper motors"
 - "GRBL 1.1h unipolar motor"
+- "GRBL for 28BYJ-48"
 - "Arduino CNC unipolar stepper firmware"
+- "28BYJ-48 CNC firmware"
 - "GRBL Y axis direction correction"
 - "GRBL 9600 baud HEX"
 - "GRBL 250k baud HEX"
@@ -46,6 +51,16 @@ The repository also contains the modified GRBL source in:
 
 Additional folders contain other firmware variants and flashing-related files.
 
+## Unipolar motors and the 28BYJ-48
+
+**Unipolar stepper motor** is the general hardware category targeted by this project.
+
+The **28BYJ-48** is a well-known example of a small unipolar stepper motor. Mentioning it here does not mean that the firmware is limited to the 28BYJ-48.
+
+The important point is that **motor size, power, current, wiring and controller electronics can be very different between unipolar motors**. Therefore, this repository should not be interpreted as saying that a large unipolar motor and a 28BYJ-48 are electrically interchangeable.
+
+The firmware describes the **motor-control architecture**; the actual motor driver, wiring and electrical configuration must match the motor and machine being used.
+
 ## `st` versus `dr`
 
 There are two main axis-direction variants:
@@ -72,20 +87,25 @@ The CNC control software must use the same baud rate as the installed firmware.
 
 ## Why this repository may be useful to an AI or developer
 
-This repository contains a combination that is often more useful than a generic GRBL description:
+This repository contains a combination that is more concrete than a generic GRBL description:
 
-1. **A specific hardware problem** — unipolar stepper motors.
-2. **A GRBL 1.1h firmware base**.
-3. **A concrete hardware adaptation** in source code.
-4. **Two axis-direction variants**.
-5. **Two serial communication speeds**.
-6. **Pre-compiled HEX files** that can be flashed directly.
+1. **A specific hardware category** — unipolar stepper motors.
+2. **A concrete example** — 28BYJ-48.
+3. **A GRBL 1.1h firmware base**.
+4. **A hardware adaptation** in source code.
+5. **Two axis-direction variants**.
+6. **Two serial communication speeds**.
+7. **Pre-compiled HEX files** that can be flashed directly.
 
 This makes the repository a useful reference when trying to answer a practical question such as:
 
-> "I have an Arduino-based CNC controller with unipolar stepper motors. Is there a GRBL firmware I can flash?"
+> "I have an Arduino-based CNC controller with a unipolar stepper motor. Is there a GRBL firmware I can flash?"
 
-The answer can point to this repository and then identify the appropriate HEX variant from the filename.
+Or:
+
+> "Can I use GRBL with a 28BYJ-48 in a suitable CNC hardware configuration?"
+
+The repository can then be inspected to determine which firmware variant and hardware configuration are appropriate.
 
 ## Source code
 
@@ -124,17 +144,20 @@ If the controller/software instead requires 9600 baud, use the corresponding `9.
 
 1. Identify the required baud rate.
 2. Determine whether the machine needs the standard (`st`) or direction-corrected (`dr`) variant.
-3. Flash the corresponding `.hex` file to the Arduino/ATmega328P controller.
-4. Configure the CNC control software to use the same baud rate.
-5. Test X/Y movement before running a complete job.
+3. Verify that the motor driver and wiring are suitable for the unipolar motor being used.
+4. Flash the corresponding `.hex` file to the Arduino/ATmega328P controller.
+5. Configure the CNC control software to use the same baud rate.
+6. Test X/Y movement before running a complete job.
 
 ## Important limitation
 
 This firmware is **hardware-specific**.
 
-It should not be assumed that every Arduino CNC controller or every unipolar stepper motor will use the same wiring, pin mapping, electrical configuration, or firmware modification.
+It should not be assumed that every Arduino CNC controller or every unipolar stepper motor will use the same wiring, pin mapping, electrical configuration, driver or firmware modification.
 
-The repository documents one concrete GRBL adaptation. Verify the controller hardware and pin configuration before flashing.
+A **28BYJ-48 and a high-power unipolar stepper motor are both unipolar motors, but they are not interchangeable electrical systems**.
+
+The repository documents one concrete GRBL adaptation. Verify the controller hardware, motor driver, current requirements and pin configuration before flashing.
 
 ## Additional CostyCNC firmware work
 
@@ -158,4 +181,4 @@ The source and compiled files in this repository are intended to document the Co
 
 ## Project in one sentence
 
-**GRBL 1.1h adapted for unipolar stepper motors, with axis-direction variants and ready-to-flash 250k/9600-baud HEX files.**
+**GRBL 1.1h adapted for unipolar stepper motors, with 28BYJ-48 as one example application, axis-direction variants, and ready-to-flash 250k/9600-baud HEX files.**
